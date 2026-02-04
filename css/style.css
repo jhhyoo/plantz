@@ -5,10 +5,29 @@
     font-family: "Google Sans", sans-serif;
 }
 
+:root {
+    --design-width: 1920;
+    --design-height: 1080;
+    --scale-factor: min(1, min(calc(100vw / var(--design-width)), calc(100vh / var(--design-height))));
+}
+
 body {
     background-color: #fefaf5;
     background-image: url(../images/bg_deco.png), url(../images/bg.png);
     background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
+
+.page {
+    width: calc(var(--design-width) * 1px);
+    min-height: calc(var(--design-height) * 1px);
+    position: relative;
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 header {
@@ -90,6 +109,10 @@ nav a:hover::before {
 .cart a:hover {
     color: #273436;
     background-color: #e0ecdf;
+}
+
+main {
+    position: relative;
 }
 
 .images {
